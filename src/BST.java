@@ -114,4 +114,27 @@ public class BST<K extends Comparable<K>, V> {
             return 1 + size(node.left) + size(node.right);
         }
     }
+
+
+
+    // Defence of Assignment 5, needed to return height of binary search tree
+
+    // Method №1
+    private int calculateHeight(Node node) {
+        if(node == null) {
+            return 0;
+        }
+        else {
+            int leftHeight = calculateHeight(node.left);
+            int rightHeight = calculateHeight(node.right);
+            return Math.max(leftHeight, rightHeight) + 1;
+
+        }
+    }
+
+    // Method №2
+    public int getHeight() {
+        return calculateHeight(root);
+    }
+
 }
